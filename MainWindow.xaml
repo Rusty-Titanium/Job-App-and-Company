@@ -1,0 +1,89 @@
+﻿<Window x:Class="Job_App_and_Company.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Job_App_and_Company"
+        mc:Ignorable="d"
+        Title="Company Legitimacy" MinHeight="620" Height="620" MinWidth="850" Width="850" FontSize="18" Closing="Window_Closing">
+
+    <Window.Resources>
+        <local:NotesConverter x:Key="NotesConverter"/>
+        <local:ApplicationConverter x:Key="ApplicationConverter"/>
+        <local:GovWebsiteConverter x:Key="GovWebsiteConverter"/>
+        <local:TrustConverter x:Key="TrustConverter"/>
+
+        <Style x:Key="TextCenterAlignment" TargetType="{x:Type TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+    </Window.Resources>
+    
+    
+    <Grid x:Name="mainGrid">
+
+        <Button Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="5 3" Margin="10 10 0 0" Click="Save_Click"/>
+
+
+        <Button Content="New Company" HorizontalAlignment="Right" VerticalAlignment="Top" Padding="5 3" Margin="0 10 10 0" Click="New_Company_Click"/>
+
+        <Grid VerticalAlignment="Top" Margin="0 50 0 0">
+
+            <Label Content="Company Name" VerticalAlignment="Center"/>
+            <TextBox x:Name="searchBox" Margin="140 0 10 0" VerticalAlignment="Center" TextChanged="searchBox_TextChanged"/>
+
+        </Grid>
+
+        <DataGrid x:Name="dGrid" Margin="0 90 0 0" AutoGenerateColumns="False" CanUserAddRows="False" MinRowHeight="40" VerticalContentAlignment="Center" BeginningEdit="dGrid_BeginningEdit">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" CanUserReorder="False" Width="200" ElementStyle="{StaticResource TextCenterAlignment}"/>
+
+                <DataGridTemplateColumn Header="Trust" CanUserReorder="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Rectangle Fill="{Binding Trust, Converter={StaticResource TrustConverter}}" StrokeThickness="0"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="On Gov Website" CanUserReorder="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Rectangle Fill="{Binding OnGovWebsite, Converter={StaticResource GovWebsiteConverter}}" StrokeThickness="0"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Header="# of App" Binding="{Binding Applications, Converter={StaticResource ApplicationConverter}}" CanUserReorder="False" ElementStyle="{StaticResource TextCenterAlignment}"/>
+
+                <DataGridTextColumn Header="Notes" Binding="{Binding Notes, Converter={StaticResource NotesConverter}}" CanUserReorder="False" ElementStyle="{StaticResource TextCenterAlignment}"/>
+
+
+
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+
+        <!--
+        <Label x:Name="testingLabel" Content="Company Ndame" VerticalAlignment="Center"/>
+        -->
+
+        <local:AddCompany x:Name="newCompany" Visibility="Collapsed"/>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </Grid>
+    
+    
+</Window>

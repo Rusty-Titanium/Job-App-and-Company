@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="Job_App_and_Company.AddCompany"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Job_App_and_Company"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    
+    <Grid>
+        <Grid Background="Black" Opacity="0.3" MouseDown="Grid_MouseDown"/>
+
+        <Border CornerRadius="30" Background="White" Margin="100 58" VerticalAlignment="Top">
+            <StackPanel>
+                <Label Content="Creating New Company" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="0 10 0 0"/>
+
+                <Grid Margin="0 20 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="170"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Name:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox x:Name="nameTBox" Margin="4 0 60 0" Height="28" Grid.Column="1" Grid.Row="0"/>
+
+
+                    <Label Content="Trust:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" Margin="20 2 0 0" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left">
+                        <RadioButton x:Name="radio1" Content="Trust Worthy" GroupName="Group1" VerticalContentAlignment="Center"/>
+                        <RadioButton x:Name="radio2" Content="Can't Trust"  GroupName="Group1" VerticalContentAlignment="Center" Margin="18 0"/>
+                        <RadioButton x:Name="radio3" Content="Unknown"      GroupName="Group1" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+
+
+                    <Label Content="On Gov Website:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" Margin="20 4 0 0" Grid.Column="1" Grid.Row="2">
+                        <RadioButton x:Name="govRadio1" Content="True" GroupName="Group2" VerticalContentAlignment="Center" Margin="0 0 18 0"/>
+                        <RadioButton x:Name="govRadio2" Content="False" GroupName="Group2" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+
+                    <Label Content="Notes:" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Margin="0 10 0 0"/>
+                    <TextBox x:Name="notesTBox" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" AcceptsReturn="True" Height="150" Margin="4 14 60 0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                </Grid>
+
+                <Button Content="Create New Company" Padding=" 5" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 20" Click="Create_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+    
+    
+    
+</UserControl>
