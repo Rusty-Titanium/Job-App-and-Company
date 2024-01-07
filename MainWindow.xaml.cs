@@ -40,6 +40,7 @@ namespace Job_App_and_Company
          * 
          * additions
          * - I want to make sure that I have a way of adding aplications to job shit. I think I already am starting to put stuff in place, but I just wanted to put it in writing just in case.
+         * - somewhere in the code I should have a place to open up the government website so that users dont have to go looking for it themselves.
          * 
          */
 
